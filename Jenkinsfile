@@ -36,7 +36,7 @@ environment {
             withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: '', contextName: '', credentialsId: '4', namespace: 'ahmedgomaa', serverUrl: 'https://api.ocp-training.ivolve-test.com:6443']]) {    
                
                  
-                 sh 'kubectl apply -f python-app.yml -n ahmedgomaa'
+                 sh 'kubectl apply -f deployment.yaml'
                  
                  
             }
