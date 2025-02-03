@@ -29,19 +29,19 @@ environment {
     
     
     
-    // stage('Deploy in kubernetes') {
-    //         steps {                                     
+    stage('Deploy in kubernetes') {
+            steps {                                     
                    
 
-    //         withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: '', contextName: '', credentialsId: '4', namespace: 'ahmedgomaa', serverUrl: 'https://api.ocp-training.ivolve-test.com:6443']]) {    
-    //             sh "sed 's|image:.*|image: ${imageName}:${BUILD_NUMBER}|' ${yamlfiles} > python-app.yml"
+            withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: '', contextName: '', credentialsId: '4', namespace: 'ahmedgomaa', serverUrl: 'https://api.ocp-training.ivolve-test.com:6443']]) {    
+               
                  
-    //              sh 'oc apply -f python-app.yml -n ahmedgomaa'
+                 sh 'kubectl apply -f python-app.yml -n ahmedgomaa'
                  
                  
-    //         }
-    //     }
-    //     }
+            }
+        }
+        }
     
     
 }
