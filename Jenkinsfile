@@ -13,10 +13,10 @@ environment {
      stages {
             stage('Verify Branch') {
             steps {
-               sh '''
+               
                        echo "$GIT_BRANCH"
-                       kubectl get po
-                '''
+                     
+                
             }
         
             }
@@ -36,13 +36,15 @@ environment {
             steps {                                     
                    
 
-            withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: '', contextName: '', credentialsId: '4', namespace: 'ahmedgomaa', serverUrl: 'https://api.ocp-training.ivolve-test.com:6443']]) {    
                
+               
+                kubeconfig(credentialsId: 'kubecli', serverUrl: '') {
+                                   sh 'kubectl get pod'
+                } 
                  
-                 sh 'kubectl apply -f deployment.yaml'
                  
                  
-            }
+            
         }
         }
     
