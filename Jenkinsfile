@@ -1,4 +1,3 @@
-// @Library('shared-library') _
 
 pipeline {
 
@@ -14,7 +13,7 @@ environment {
      stages {
             stage('Verify Branch') {
             steps {
-                echo "main branch"
+                echo "$GIT_BRANCH"
             }
         
             }
