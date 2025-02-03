@@ -39,7 +39,6 @@ environment {
 withCredentials([string(credentialsId: 'kubecli', variable: 'token')]) {
    sh 'kubectl get pods --token=$token --server=https://kubernetes.default.svc -n devops-tools '
 }
-    sh 'kubectl get pods --token=<your-token> --server=<your-server-url> -n <namespace>'
 
                                   
                  
