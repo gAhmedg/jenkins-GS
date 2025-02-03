@@ -13,7 +13,10 @@ environment {
      stages {
             stage('Verify Branch') {
             steps {
-                echo "$GIT_BRANCH"
+               sh '''
+                       echo "$GIT_BRANCH"
+                       kubectl get po
+                '''
             }
         
             }
