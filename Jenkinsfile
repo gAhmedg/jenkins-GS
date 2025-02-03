@@ -38,7 +38,7 @@ environment {
 
                
                
-               withCredentials([string(credentialsId: 'kubecli', variable: '')]) {
+               kubeconfig(credentialsId: 'kubecli', serverUrl: 'https://kubernetes.default.svc') {
     sh 'kubectl get pod'
 }
                                   
